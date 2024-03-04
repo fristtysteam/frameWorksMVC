@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Frist\\Source\\Repos\\frameWorksMVC\\MvcGame\\MvcGame\\MvcGame.csproj": {}
+    "C:\\Users\\Frist\\source\\repos\\frameWorksMVC\\MvcGame\\MvcGame\\MvcGame.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Frist\\Source\\Repos\\frameWorksMVC\\MvcGame\\MvcGame\\MvcGame.csproj": {
+    "C:\\Users\\Frist\\source\\repos\\frameWorksMVC\\MvcGame\\MvcGame\\MvcGame.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Frist\\Source\\Repos\\frameWorksMVC\\MvcGame\\MvcGame\\MvcGame.csproj",
+        "projectUniqueName": "C:\\Users\\Frist\\source\\repos\\frameWorksMVC\\MvcGame\\MvcGame\\MvcGame.csproj",
         "projectName": "MvcGame",
-        "projectPath": "C:\\Users\\Frist\\Source\\Repos\\frameWorksMVC\\MvcGame\\MvcGame\\MvcGame.csproj",
+        "projectPath": "C:\\Users\\Frist\\source\\repos\\frameWorksMVC\\MvcGame\\MvcGame\\MvcGame.csproj",
         "packagesPath": "C:\\Users\\Frist\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Frist\\Source\\Repos\\frameWorksMVC\\MvcGame\\MvcGame\\obj\\",
+        "outputPath": "C:\\Users\\Frist\\source\\repos\\frameWorksMVC\\MvcGame\\MvcGame\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Frist\\AppData\\Roaming\\NuGet\\NuGet.Config",
