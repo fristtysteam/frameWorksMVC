@@ -1,4 +1,9 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using MvcGame.Data;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<MvcGameContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("MvcGameContext") ?? throw new InvalidOperationException("Connection string 'MvcGameContext' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
