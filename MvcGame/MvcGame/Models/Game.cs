@@ -50,6 +50,5 @@ namespace MvcGame.Models
 
 
 
-        public Game() { }
     }
 }
