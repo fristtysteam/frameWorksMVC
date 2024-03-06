@@ -26,10 +26,11 @@ namespace MvcGame.Models
                         Description = "Elden Ring is an action role-playing game, set in third-person perspective. It includes elements that are similar to those in other FromSoftware-developed games such as the Dark Souls series, Bloodborne, and Sekiro: Shadows Die Twice.",
                         Genre = "Souls Like",
                         Price = 70.00M, //price in euro
-                        ReleaseDate = DateTime.Parse("2022-5-24")
+                        ReleaseDate = DateTime.Parse("2022-5-24"),
+                        Rating = "16+"
 
 
-                    });
+                    }); ;
                 context.SaveChanges();
             }
         }

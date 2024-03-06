@@ -20,10 +20,46 @@ namespace MvcGame.Controllers
         }
 
         // GET: Games
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string gameGenre, string searchString)
         {
-            return View(await _context.Game.ToListAsync());
+            if (_context.Game == null)
+            {
+                return Problem("Entity set 'MvcGameContext.Game'  is null.");
+            }
+
+            IQueryable<string> genreQuery = from g in _context.Game
+                                            orderby g.Genre
+                                            select g.Genre;
+            var games = from g in _context.Game
+                        select g;
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                games = games.Where(s => s.Title!.Contains(searchString));
+            }
+
+            if (!string.IsNullOrEmpty(gameGenre))
+            {
+                games = games.Where(x => x.Genre == gameGenre);
+            }
+
+            var gameGenreVM = new GameGenreViewModel
+            {
+                Genres = new SelectList(await genreQuery.Distinct().ToListAsync()),
+                Games = await games.ToListAsync()
+            };
+
+            return View(gameGenreVM);
         }
+
+        [HttpPost]
+        public string Index(string searchString, bool notUsed)
+        {
+            return "From [HttpPost]Index: filter on " + searchString;
+        }
+
+
+
 
         // GET: Games/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -54,7 +90,7 @@ namespace MvcGame.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,Description,Genre,Price,ReleaseDate")] Game game)
+        public async Task<IActionResult> Create([Bind("Id,Title,Description,Genre,Price,ReleaseDate,Rating")] Game game)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +122,7 @@ namespace MvcGame.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Description,Genre,Price,ReleaseDate")] Game game)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Description,Genre,Price,ReleaseDate,Rating")] Game game)
         {
             if (id != game.Id)
             {
@@ -117,7 +153,8 @@ namespace MvcGame.Controllers
         }
 
         // GET: Games/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        
+        public async Task<IActionResult> Delete(int? id, bool notUsed)
         {
             if (id == null)
             {
@@ -153,5 +190,10 @@ namespace MvcGame.Controllers
         {
             return _context.Game.Any(e => e.Id == id);
         }
+
+        // POST: Movies/Delete/6
+
+
+
     }
 }
