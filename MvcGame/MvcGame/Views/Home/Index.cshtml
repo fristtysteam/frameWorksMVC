@@ -2,7 +2,36 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewData["Title"]</title>
+</head>
+<body>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 text-center">
+                <h1 class="display-4">Game MVC</h1>
+                <p class="lead">This is your homepage for the game MVC.</p>
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-md-6 text-center">
+                <a href="/games">
+                    <img src="https://images3.alphacoders.com/600/600925.jpg" class="img-fluid rounded-circle" alt="Games">
+                    <h3>Games</h3>
+                </a>
+            </div>
+            <div class="col-md-6 text-center">
+                <a href="/studios">
+                <img src="https://www.desktopbackground.org/download/1920x1200/2011/07/25/239728_steam-software-valve-corporation-logos-wallpapers_5000x2000_h.png" class="img-fluid rounded-circle" alt="Studios">
+                <h3>Studios</h3>
+                </a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

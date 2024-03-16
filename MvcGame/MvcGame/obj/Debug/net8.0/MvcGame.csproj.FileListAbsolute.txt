@@ -260,3 +260,5 @@ C:\Users\Frist\source\repos\frameWorksMVC\MvcGame\MvcGame\obj\Debug\net8.0\refin
 C:\Users\Frist\source\repos\frameWorksMVC\MvcGame\MvcGame\obj\Debug\net8.0\MvcGame.pdb
 C:\Users\Frist\source\repos\frameWorksMVC\MvcGame\MvcGame\obj\Debug\net8.0\MvcGame.genruntimeconfig.cache
 C:\Users\Frist\source\repos\frameWorksMVC\MvcGame\MvcGame\obj\Debug\net8.0\ref\MvcGame.dll
+C:\Users\Frist\source\repos\frameWorksMVC\MvcGame\MvcGame\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Frist\source\repos\frameWorksMVC\MvcGame\MvcGame\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll

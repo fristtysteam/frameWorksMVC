@@ -15,5 +15,6 @@ namespace MvcGame.Data
         }
 
         public DbSet<MvcGame.Models.Game> Game { get; set; }
+        public DbSet<MvcGame.Models.Studio> Studio { get; set; } = default!;
     }
 }

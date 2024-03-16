@@ -1,0 +1,49 @@
+﻿@model MvcGame.Models.Studio
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1 class="text-center mt-5">Create New Studio</h1>
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <form asp-action="Create" class="studio-form border rounded p-4">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label futuristic-text">Studio Name</label>
+                    <input asp-for="Name" class="form-control futuristic-input" placeholder="Enter Studio Name" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Description" class="control-label futuristic-text">Description</label>
+                    <textarea asp-for="Description" class="form-control futuristic-input" placeholder="Enter Studio Description"></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="ReleaseDate" class="control-label futuristic-text">Release Date</label>
+                    <input asp-for="ReleaseDate" class="form-control futuristic-input" placeholder="Enter Release Date" />
+                    <span asp-validation-for="ReleaseDate" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block futuristic-button">Create Studio</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
