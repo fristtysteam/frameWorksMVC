@@ -1,6 +1,9 @@
 C:\Users\Frist\source\repos\frameWorksMVC\MvcGame\MvcGame\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\Frist\source\repos\frameWorksMVC\MvcGame\MvcGame\bin\Debug\net8.0\appsettings.json
 C:\Users\Frist\source\repos\frameWorksMVC\MvcGame\MvcGame\bin\Debug\net8.0\MvcGame.staticwebassets.runtime.json
+C:\Users\Frist\source\repos\frameWorksMVC\MvcGame\MvcGame\bin\Debug\net8.0\xunit.runner.visualstudio.testadapter.dll
+C:\Users\Frist\source\repos\frameWorksMVC\MvcGame\MvcGame\bin\Debug\net8.0\xunit.runner.reporters.netcoreapp10.dll
+C:\Users\Frist\source\repos\frameWorksMVC\MvcGame\MvcGame\bin\Debug\net8.0\xunit.runner.utility.netcoreapp10.dll
 C:\Users\Frist\source\repos\frameWorksMVC\MvcGame\MvcGame\bin\Debug\net8.0\MvcGame.exe
 C:\Users\Frist\source\repos\frameWorksMVC\MvcGame\MvcGame\bin\Debug\net8.0\MvcGame.deps.json
 C:\Users\Frist\source\repos\frameWorksMVC\MvcGame\MvcGame\bin\Debug\net8.0\MvcGame.runtimeconfig.json
@@ -8,6 +11,7 @@ C:\Users\Frist\source\repos\frameWorksMVC\MvcGame\MvcGame\bin\Debug\net8.0\MvcGa
 C:\Users\Frist\source\repos\frameWorksMVC\MvcGame\MvcGame\bin\Debug\net8.0\MvcGame.pdb
 C:\Users\Frist\source\repos\frameWorksMVC\MvcGame\MvcGame\bin\Debug\net8.0\Azure.Core.dll
 C:\Users\Frist\source\repos\frameWorksMVC\MvcGame\MvcGame\bin\Debug\net8.0\Azure.Identity.dll
+C:\Users\Frist\source\repos\frameWorksMVC\MvcGame\MvcGame\bin\Debug\net8.0\Castle.Core.dll
 C:\Users\Frist\source\repos\frameWorksMVC\MvcGame\MvcGame\bin\Debug\net8.0\Humanizer.dll
 C:\Users\Frist\source\repos\frameWorksMVC\MvcGame\MvcGame\bin\Debug\net8.0\Microsoft.AspNetCore.Authorization.dll
 C:\Users\Frist\source\repos\frameWorksMVC\MvcGame\MvcGame\bin\Debug\net8.0\Microsoft.AspNetCore.Components.dll
@@ -38,7 +42,9 @@ C:\Users\Frist\source\repos\frameWorksMVC\MvcGame\MvcGame\bin\Debug\net8.0\Micro
 C:\Users\Frist\source\repos\frameWorksMVC\MvcGame\MvcGame\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Design.dll
 C:\Users\Frist\source\repos\frameWorksMVC\MvcGame\MvcGame\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
 C:\Users\Frist\source\repos\frameWorksMVC\MvcGame\MvcGame\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\Frist\source\repos\frameWorksMVC\MvcGame\MvcGame\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 C:\Users\Frist\source\repos\frameWorksMVC\MvcGame\MvcGame\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\Frist\source\repos\frameWorksMVC\MvcGame\MvcGame\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
 C:\Users\Frist\source\repos\frameWorksMVC\MvcGame\MvcGame\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
 C:\Users\Frist\source\repos\frameWorksMVC\MvcGame\MvcGame\bin\Debug\net8.0\Microsoft.Identity.Client.dll
 C:\Users\Frist\source\repos\frameWorksMVC\MvcGame\MvcGame\bin\Debug\net8.0\Microsoft.Identity.Client.Extensions.Msal.dll
@@ -60,6 +66,7 @@ C:\Users\Frist\source\repos\frameWorksMVC\MvcGame\MvcGame\bin\Debug\net8.0\Micro
 C:\Users\Frist\source\repos\frameWorksMVC\MvcGame\MvcGame\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
 C:\Users\Frist\source\repos\frameWorksMVC\MvcGame\MvcGame\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
 C:\Users\Frist\source\repos\frameWorksMVC\MvcGame\MvcGame\bin\Debug\net8.0\Mono.TextTemplating.dll
+C:\Users\Frist\source\repos\frameWorksMVC\MvcGame\MvcGame\bin\Debug\net8.0\Moq.dll
 C:\Users\Frist\source\repos\frameWorksMVC\MvcGame\MvcGame\bin\Debug\net8.0\Newtonsoft.Json.dll
 C:\Users\Frist\source\repos\frameWorksMVC\MvcGame\MvcGame\bin\Debug\net8.0\NuGet.Common.dll
 C:\Users\Frist\source\repos\frameWorksMVC\MvcGame\MvcGame\bin\Debug\net8.0\NuGet.Configuration.dll
@@ -85,6 +92,10 @@ C:\Users\Frist\source\repos\frameWorksMVC\MvcGame\MvcGame\bin\Debug\net8.0\Syste
 C:\Users\Frist\source\repos\frameWorksMVC\MvcGame\MvcGame\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Frist\source\repos\frameWorksMVC\MvcGame\MvcGame\bin\Debug\net8.0\System.Security.Permissions.dll
 C:\Users\Frist\source\repos\frameWorksMVC\MvcGame\MvcGame\bin\Debug\net8.0\System.Windows.Extensions.dll
+C:\Users\Frist\source\repos\frameWorksMVC\MvcGame\MvcGame\bin\Debug\net8.0\xunit.abstractions.dll
+C:\Users\Frist\source\repos\frameWorksMVC\MvcGame\MvcGame\bin\Debug\net8.0\xunit.assert.dll
+C:\Users\Frist\source\repos\frameWorksMVC\MvcGame\MvcGame\bin\Debug\net8.0\xunit.core.dll
+C:\Users\Frist\source\repos\frameWorksMVC\MvcGame\MvcGame\bin\Debug\net8.0\xunit.execution.dotnet.dll
 C:\Users\Frist\source\repos\frameWorksMVC\MvcGame\MvcGame\bin\Debug\net8.0\af\Humanizer.resources.dll
 C:\Users\Frist\source\repos\frameWorksMVC\MvcGame\MvcGame\bin\Debug\net8.0\ar\Humanizer.resources.dll
 C:\Users\Frist\source\repos\frameWorksMVC\MvcGame\MvcGame\bin\Debug\net8.0\az\Humanizer.resources.dll
@@ -260,5 +271,3 @@ C:\Users\Frist\source\repos\frameWorksMVC\MvcGame\MvcGame\obj\Debug\net8.0\refin
 C:\Users\Frist\source\repos\frameWorksMVC\MvcGame\MvcGame\obj\Debug\net8.0\MvcGame.pdb
 C:\Users\Frist\source\repos\frameWorksMVC\MvcGame\MvcGame\obj\Debug\net8.0\MvcGame.genruntimeconfig.cache
 C:\Users\Frist\source\repos\frameWorksMVC\MvcGame\MvcGame\obj\Debug\net8.0\ref\MvcGame.dll
-C:\Users\Frist\source\repos\frameWorksMVC\MvcGame\MvcGame\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
-C:\Users\Frist\source\repos\frameWorksMVC\MvcGame\MvcGame\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll

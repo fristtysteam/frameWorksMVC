@@ -20,6 +20,12 @@ namespace MvcGame.Controllers
         }
 
         // GET: Games
+        /// <summary>
+        /// Displays a list of games filtered by genre and search string.
+        /// </summary>
+        /// <param name="gameGenre">Genre to filter by.</param>
+        /// <param name="searchString">Search string to filter games by title.</param>
+        /// <returns>Returns a view displaying the filtered list of games.</returns>
         public async Task<IActionResult> Index(string gameGenre, string searchString)
         {
             if (_context.Game == null)
@@ -52,6 +58,12 @@ namespace MvcGame.Controllers
             return View(gameGenreVM);
         }
 
+        /// <summary>
+        /// Hhandles form submission for filtering games by search string.
+        /// </summary>
+        /// <param name="searchString">Search string entered by the user</param>
+        /// <param name="notUsed">Unused parameter required for method signature</param>
+        /// <returns>Returns a string indicating the applied filter.</returns>
         [HttpPost]
         public string Index(string searchString, bool notUsed)
         {
@@ -62,6 +74,11 @@ namespace MvcGame.Controllers
 
 
         // GET: Games/Details/5
+        /// <summary>
+        /// Displays details of a specific game.
+        /// </summary>
+        /// <param name="id">ID of the game to display details for.</param>
+        /// <returns>Returns a view displaying the details of the specified game.</returns>
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -79,7 +96,8 @@ namespace MvcGame.Controllers
             return View(game);
         }
 
-        // GET: Games/Create
+        
+        [HttpPost]
         public IActionResult Create()
         {
             return View();
@@ -120,6 +138,12 @@ namespace MvcGame.Controllers
         // POST: Games/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /// <summary>
+        /// Handles form submission for editing an existing game.
+        /// </summary>
+        /// <param name="id">ID of the game to edit.</param>
+        /// <param name="game">Game object containing updated details.</param>
+        /// <returns>Returns a view indicating success or failure of the update operation.</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Description,Genre,Price,ReleaseDate,Rating")] Game game)
@@ -153,7 +177,12 @@ namespace MvcGame.Controllers
         }
 
         // GET: Games/Delete/5
-        
+        /// <summary>
+        /// Displays a confirmation page for deleting a game.
+        /// </summary>
+        /// <param name="id">ID of the game to delete.</param>
+        /// <param name="notUsed">Unused parameter required for method signature.</param>
+        /// <returns>Returns a view for confirming the deletion of the specified game.</returns>
         public async Task<IActionResult> Delete(int? id, bool notUsed)
         {
             if (id == null)
@@ -172,6 +201,11 @@ namespace MvcGame.Controllers
         }
 
         // POST: Games/Delete/5
+        /// <summary>
+        /// Handles form submission for confirming the deletion of a game.
+        /// </summary>
+        /// <param name="id">ID of the game to delete</param>
+        /// <returns>Returns a view indicating success or failure of the deletion operation.</returns>
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
@@ -185,7 +219,11 @@ namespace MvcGame.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-
+        /// <summary>
+        /// Checks if a game with the specified ID exists in the database.
+        /// </summary>
+        /// <param name="id">ID of the game to check</param>
+        /// <returns>Returns true if a game with the specified ID exists; otherwise, false.</returns>
         private bool GameExists(int id)
         {
             return _context.Game.Any(e => e.Id == id);

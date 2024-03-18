@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "/QW2Lkai5nKebIsFvjs09pSgBYptST7hKiYKOu32jZ4YPpslvkAr9bPqU7ywO2eP7TEZh/fiJ0UAyQimpEjUdQ==",
+  "dgSpecHash": "zF29kC+oQXByY5SnCoPKUixd65i2zDuO8sdMVyeYpV23hYjElN52s6EYVq2HRPVDCDUEq92ttANCtUJcbVLjBg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Frist\\source\\repos\\frameWorksMVC\\MvcGame\\MvcGame\\MvcGame.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Frist\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\Frist\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
+    "C:\\Users\\Frist\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
     "C:\\Users\\Frist\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\Frist\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Frist\\.nuget\\packages\\humanizer.core.af\\2.14.1\\humanizer.core.af.2.14.1.nupkg.sha512",
@@ -123,6 +124,7 @@
     "C:\\Users\\Frist\\.nuget\\packages\\microsoft.visualstudio.web.codegenerators.mvc\\8.0.2\\microsoft.visualstudio.web.codegenerators.mvc.8.0.2.nupkg.sha512",
     "C:\\Users\\Frist\\.nuget\\packages\\microsoft.win32.systemevents\\7.0.0\\microsoft.win32.systemevents.7.0.0.nupkg.sha512",
     "C:\\Users\\Frist\\.nuget\\packages\\mono.texttemplating\\2.3.1\\mono.texttemplating.2.3.1.nupkg.sha512",
+    "C:\\Users\\Frist\\.nuget\\packages\\moq\\4.20.70\\moq.4.20.70.nupkg.sha512",
     "C:\\Users\\Frist\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\Frist\\.nuget\\packages\\nuget.common\\6.9.1\\nuget.common.6.9.1.nupkg.sha512",
     "C:\\Users\\Frist\\.nuget\\packages\\nuget.configuration\\6.9.1\\nuget.configuration.6.9.1.nupkg.sha512",
@@ -171,7 +173,16 @@
     "C:\\Users\\Frist\\.nuget\\packages\\system.threading.channels\\7.0.0\\system.threading.channels.7.0.0.nupkg.sha512",
     "C:\\Users\\Frist\\.nuget\\packages\\system.threading.tasks.dataflow\\7.0.0\\system.threading.tasks.dataflow.7.0.0.nupkg.sha512",
     "C:\\Users\\Frist\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
-    "C:\\Users\\Frist\\.nuget\\packages\\system.windows.extensions\\7.0.0\\system.windows.extensions.7.0.0.nupkg.sha512"
+    "C:\\Users\\Frist\\.nuget\\packages\\system.windows.extensions\\7.0.0\\system.windows.extensions.7.0.0.nupkg.sha512",
+    "C:\\Users\\Frist\\.nuget\\packages\\xunit\\2.7.0\\xunit.2.7.0.nupkg.sha512",
+    "C:\\Users\\Frist\\.nuget\\packages\\xunit.abstractions\\2.0.3\\xunit.abstractions.2.0.3.nupkg.sha512",
+    "C:\\Users\\Frist\\.nuget\\packages\\xunit.analyzers\\1.11.0\\xunit.analyzers.1.11.0.nupkg.sha512",
+    "C:\\Users\\Frist\\.nuget\\packages\\xunit.assert\\2.7.0\\xunit.assert.2.7.0.nupkg.sha512",
+    "C:\\Users\\Frist\\.nuget\\packages\\xunit.core\\2.7.0\\xunit.core.2.7.0.nupkg.sha512",
+    "C:\\Users\\Frist\\.nuget\\packages\\xunit.extensibility.core\\2.7.0\\xunit.extensibility.core.2.7.0.nupkg.sha512",
+    "C:\\Users\\Frist\\.nuget\\packages\\xunit.extensibility.execution\\2.7.0\\xunit.extensibility.execution.2.7.0.nupkg.sha512",
+    "C:\\Users\\Frist\\.nuget\\packages\\xunit.runner.console\\2.7.0\\xunit.runner.console.2.7.0.nupkg.sha512",
+    "C:\\Users\\Frist\\.nuget\\packages\\xunit.runner.visualstudio\\2.5.7\\xunit.runner.visualstudio.2.5.7.nupkg.sha512"
   ],
   "logs": []
 }
