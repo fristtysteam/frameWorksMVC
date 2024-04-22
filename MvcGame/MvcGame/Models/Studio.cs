@@ -13,7 +13,7 @@ namespace MvcGame.Models
 
         [StringLength(60, MinimumLength = 2)]
         [Required]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
 
 
@@ -21,6 +21,7 @@ namespace MvcGame.Models
         /// ? annotation means the property is nullable
         /// </summary>
         /// 
+        [Required]
         public string? Description { get; set; }
 
 

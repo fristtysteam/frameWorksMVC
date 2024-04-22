@@ -13,7 +13,7 @@ namespace MvcGame.Models
 
         [StringLength(60, MinimumLength = 2)]
         [Required]
-        public string Title { get; set; }
+        public string? Title { get; set; }
 
 
 

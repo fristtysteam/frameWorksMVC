@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Frist\\source\\repos\\frameWorksMVC\\MvcGame\\MvcGame\\MvcGame.csproj": {}
+    "C:\\Users\\student\\OneDrive - Dundalk Institute of Technology\\COLLEGE\\Year 3\\Web Frameworks\\MvcMovie\\frameWorksMVC\\MvcGame\\MvcGame\\MvcGame.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Frist\\source\\repos\\frameWorksMVC\\MvcGame\\MvcGame\\MvcGame.csproj": {
+    "C:\\Users\\student\\OneDrive - Dundalk Institute of Technology\\COLLEGE\\Year 3\\Web Frameworks\\MvcMovie\\frameWorksMVC\\MvcGame\\MvcGame\\MvcGame.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Frist\\source\\repos\\frameWorksMVC\\MvcGame\\MvcGame\\MvcGame.csproj",
+        "projectUniqueName": "C:\\Users\\student\\OneDrive - Dundalk Institute of Technology\\COLLEGE\\Year 3\\Web Frameworks\\MvcMovie\\frameWorksMVC\\MvcGame\\MvcGame\\MvcGame.csproj",
         "projectName": "MvcGame",
-        "projectPath": "C:\\Users\\Frist\\source\\repos\\frameWorksMVC\\MvcGame\\MvcGame\\MvcGame.csproj",
-        "packagesPath": "C:\\Users\\Frist\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Frist\\source\\repos\\frameWorksMVC\\MvcGame\\MvcGame\\obj\\",
+        "projectPath": "C:\\Users\\student\\OneDrive - Dundalk Institute of Technology\\COLLEGE\\Year 3\\Web Frameworks\\MvcMovie\\frameWorksMVC\\MvcGame\\MvcGame\\MvcGame.csproj",
+        "packagesPath": "C:\\Users\\student\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\student\\OneDrive - Dundalk Institute of Technology\\COLLEGE\\Year 3\\Web Frameworks\\MvcMovie\\frameWorksMVC\\MvcGame\\MvcGame\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Frist\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\student\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,19 +40,39 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.MicrosoftAccount": {
+              "target": "Package",
+              "version": "[8.0.4, )"
+            },
             "Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter": {
               "target": "Package",
-              "version": "[8.0.3, )"
+              "version": "[8.0.4, )"
+            },
+            "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.4, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.4, )"
+            },
+            "Microsoft.AspNetCore.Identity.UI": {
+              "target": "Package",
+              "version": "[8.0.4, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[8.0.3, )"
+              "version": "[8.0.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[8.0.4, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[8.0.3, )"
+              "version": "[8.0.4, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
@@ -122,7 +142,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
