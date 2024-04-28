@@ -7,41 +7,42 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MvcGame.Data;
 using MvcGame.Models;
+using System.Net.Http;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace MvcGame.Controllers
 {
     public class GamesController : Controller
     {
         private readonly MvcGameContext _context;
+        private readonly string _rawgApiKey = "0bf1db4562bb4b6bb1452b58c12fb7f9";
+        private readonly HttpClient _httpClient;
 
         public GamesController(MvcGameContext context)
         {
             _context = context;
+            _httpClient = new HttpClient();
+            _httpClient.BaseAddress = new Uri("https://api.rawg.io/api/");
+            _httpClient.DefaultRequestHeaders.Add("User-Agent", "MvcGame");
         }
 
         // GET: Games
-        /// <summary>
-        /// Displays a list of games filtered by genre and search string.
-        /// </summary>
-        /// <param name="gameGenre">Genre to filter by.</param>
-        /// <param name="searchString">Search string to filter games by title.</param>
-        /// <returns>Returns a view displaying the filtered list of games.</returns>
         public async Task<IActionResult> Index(string gameGenre, string searchString)
         {
             if (_context.Game == null)
             {
-                return Problem("Entity set 'MvcGameContext.Game'  is null.");
+                return Problem("Entity set 'MvcGameContext.Game' is null.");
             }
 
             IQueryable<string> genreQuery = from g in _context.Game
                                             orderby g.Genre
                                             select g.Genre;
-            var games = from g in _context.Game
-                        select g;
+            var games = _context.Game.AsQueryable();
 
             if (!string.IsNullOrEmpty(searchString))
             {
-                games = games.Where(s => s.Title!.Contains(searchString));
+                games = games.Where(s => s.Title.Contains(searchString));
             }
 
             if (!string.IsNullOrEmpty(gameGenre))
@@ -49,36 +50,44 @@ namespace MvcGame.Controllers
                 games = games.Where(x => x.Genre == gameGenre);
             }
 
-            var gameGenreVM = new GameGenreViewModel
+            // Fetch API games
+            List<Game> apiGames = new List<Game>();
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                apiGames = await GetGamesFromRawgApi(searchString);
+
+                if (apiGames != null && apiGames.Any()) 
+                {
+                    var allGames = games.ToList();
+                    allGames.AddRange(apiGames);
+
+                    var gameGenreVM = new GameGenreViewModel
+                    {
+                        Genres = new SelectList(await genreQuery.Distinct().ToListAsync()),
+                        Games = allGames
+                    };
+
+                    return View(gameGenreVM);
+                }
+            }
+
+            // If API games are null or empty, return only the local games
+            var localGameGenreVM = new GameGenreViewModel
             {
                 Genres = new SelectList(await genreQuery.Distinct().ToListAsync()),
                 Games = await games.ToListAsync()
             };
 
-            return View(gameGenreVM);
+            return View(localGameGenreVM);
         }
 
-        /// <summary>
-        /// Hhandles form submission for filtering games by search string.
-        /// </summary>
-        /// <param name="searchString">Search string entered by the user</param>
-        /// <param name="notUsed">Unused parameter required for method signature</param>
-        /// <returns>Returns a string indicating the applied filter.</returns>
+
         [HttpPost]
         public string Index(string searchString, bool notUsed)
         {
             return "From [HttpPost]Index: filter on " + searchString;
         }
 
-
-
-
-        // GET: Games/Details/5
-        /// <summary>
-        /// Displays details of a specific game.
-        /// </summary>
-        /// <param name="id">ID of the game to display details for.</param>
-        /// <returns>Returns a view displaying the details of the specified game.</returns>
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -96,16 +105,12 @@ namespace MvcGame.Controllers
             return View(game);
         }
 
-        
         [HttpPost]
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Games/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Title,Description,Genre,Price,ReleaseDate,Rating")] Game game)
@@ -119,7 +124,6 @@ namespace MvcGame.Controllers
             return View(game);
         }
 
-        // GET: Games/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -135,15 +139,6 @@ namespace MvcGame.Controllers
             return View(game);
         }
 
-        // POST: Games/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        /// <summary>
-        /// Handles form submission for editing an existing game.
-        /// </summary>
-        /// <param name="id">ID of the game to edit.</param>
-        /// <param name="game">Game object containing updated details.</param>
-        /// <returns>Returns a view indicating success or failure of the update operation.</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Description,Genre,Price,ReleaseDate,Rating")] Game game)
@@ -176,13 +171,6 @@ namespace MvcGame.Controllers
             return View(game);
         }
 
-        // GET: Games/Delete/5
-        /// <summary>
-        /// Displays a confirmation page for deleting a game.
-        /// </summary>
-        /// <param name="id">ID of the game to delete.</param>
-        /// <param name="notUsed">Unused parameter required for method signature.</param>
-        /// <returns>Returns a view for confirming the deletion of the specified game.</returns>
         public async Task<IActionResult> Delete(int? id, bool notUsed)
         {
             if (id == null)
@@ -200,12 +188,6 @@ namespace MvcGame.Controllers
             return View(game);
         }
 
-        // POST: Games/Delete/5
-        /// <summary>
-        /// Handles form submission for confirming the deletion of a game.
-        /// </summary>
-        /// <param name="id">ID of the game to delete</param>
-        /// <returns>Returns a view indicating success or failure of the deletion operation.</returns>
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
@@ -219,17 +201,86 @@ namespace MvcGame.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-        /// <summary>
-        /// Checks if a game with the specified ID exists in the database.
-        /// </summary>
-        /// <param name="id">ID of the game to check</param>
-        /// <returns>Returns true if a game with the specified ID exists; otherwise, false.</returns>
+
         private bool GameExists(int id)
         {
             return _context.Game.Any(e => e.Id == id);
         }
 
-        // POST: Movies/Delete/6
+        private async Task<List<Game>> GetGamesFromRawgApi(string searchString)
+        {
+            var response = await _httpClient.GetAsync($"games?search={searchString}&key={_rawgApiKey}");
+            if (response.IsSuccessStatusCode)
+            {
+                var content = await response.Content.ReadAsStringAsync();
+                var jsonObject = JsonConvert.DeserializeObject<JObject>(content);
+                var gamesArray = jsonObject["results"].ToObject<JArray>();
+
+                var games = new List<Game>();
+                foreach (var gameToken in gamesArray)
+                {
+                    var gameObject = gameToken.ToObject<JObject>();
+                    var title = (string)gameObject["name"];
+                    var description = ""; 
+                    var genre = ""; 
+                    var priceStr = (string)gameObject["metacritic"]; 
+                    var releaseDateStr = (string)gameObject["released"];
+                    var rating = (string)gameObject["rating"];
+
+                    var genresArray = gameObject["genres"].ToObject<JArray>();
+                    if (genresArray.Any())
+                    {
+                        genre = (string)genresArray[0]["name"]; 
+                    }
+
+                    DateTime releaseDate;
+                    if (!DateTime.TryParse(releaseDateStr, out releaseDate))
+                    {
+                        releaseDate = DateTime.MinValue;
+                    }
+
+                    decimal price;
+                    if (!decimal.TryParse(priceStr, out price))
+                    {
+                        price = 0m;
+                    }
+
+                    if (string.IsNullOrEmpty(description))
+                    {
+                        description = "Description not available";
+                    }
+
+                    var game = new Game
+                    {
+                        Title = title,
+                        Description = description,
+                        Genre = genre, 
+                        Price = price,
+                        ReleaseDate = releaseDate,
+                        Rating = rating
+                    };
+
+                    games.Add(game);
+                }
+
+                return games;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
 
 
 

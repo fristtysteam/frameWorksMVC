@@ -4,13 +4,12 @@
     ViewData["Title"] = "Index";
 }
 
-
 <h1 class="text-center mt-5">Games Index</h1>
 
 <div class="container mt-4">
     <div class="row mb-4">
         <div class="col-md-6">
-            <a asp-action="Create"  class="btn btn-primary btn-lg btn-block">Create New Game</a>
+            <a asp-action="Create" class="btn btn-primary btn-lg btn-block">Create New Game</a>
         </div>
         <div class="col-md-6">
             <form asp-controller="Games" asp-action="Index" method="get">
@@ -41,14 +40,14 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var item in Model.Games!)
+                @foreach (var item in Model.Games)
                 {
                     <tr>
                         <td>@Html.DisplayFor(modelItem => item.Title)</td>
                         <td>@Html.DisplayFor(modelItem => item.Description)</td>
                         <td>@Html.DisplayFor(modelItem => item.Genre)</td>
                         <td>@Html.DisplayFor(modelItem => item.Price)</td>
-                        <td>@Html.DisplayFor(modelItem => item.ReleaseDate)</td>
+                        <td>@item.ReleaseDate.ToShortDateString()</td>
                         <td>@Html.DisplayFor(modelItem => item.Rating)</td>
                         <td>
                             <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-info">Edit</a>

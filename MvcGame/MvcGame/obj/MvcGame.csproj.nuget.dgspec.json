@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\student\\OneDrive - Dundalk Institute of Technology\\COLLEGE\\Year 3\\Web Frameworks\\MvcMovie\\frameWorksMVC\\MvcGame\\MvcGame\\MvcGame.csproj": {}
+    "C:\\Users\\Frist\\source\\repos\\frameWorksMVC\\MvcGame\\MvcGame\\MvcGame.csproj": {}
   },
   "projects": {
-    "C:\\Users\\student\\OneDrive - Dundalk Institute of Technology\\COLLEGE\\Year 3\\Web Frameworks\\MvcMovie\\frameWorksMVC\\MvcGame\\MvcGame\\MvcGame.csproj": {
+    "C:\\Users\\Frist\\source\\repos\\frameWorksMVC\\MvcGame\\MvcGame\\MvcGame.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\student\\OneDrive - Dundalk Institute of Technology\\COLLEGE\\Year 3\\Web Frameworks\\MvcMovie\\frameWorksMVC\\MvcGame\\MvcGame\\MvcGame.csproj",
+        "projectUniqueName": "C:\\Users\\Frist\\source\\repos\\frameWorksMVC\\MvcGame\\MvcGame\\MvcGame.csproj",
         "projectName": "MvcGame",
-        "projectPath": "C:\\Users\\student\\OneDrive - Dundalk Institute of Technology\\COLLEGE\\Year 3\\Web Frameworks\\MvcMovie\\frameWorksMVC\\MvcGame\\MvcGame\\MvcGame.csproj",
-        "packagesPath": "C:\\Users\\student\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\student\\OneDrive - Dundalk Institute of Technology\\COLLEGE\\Year 3\\Web Frameworks\\MvcMovie\\frameWorksMVC\\MvcGame\\MvcGame\\obj\\",
+        "projectPath": "C:\\Users\\Frist\\source\\repos\\frameWorksMVC\\MvcGame\\MvcGame\\MvcGame.csproj",
+        "packagesPath": "C:\\Users\\Frist\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Frist\\source\\repos\\frameWorksMVC\\MvcGame\\MvcGame\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\student\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Frist\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -82,6 +82,10 @@
               "target": "Package",
               "version": "[4.20.70, )"
             },
+            "System.Net.Http": {
+              "target": "Package",
+              "version": "[4.3.4, )"
+            },
             "xunit": {
               "target": "Package",
               "version": "[2.7.0, )"
@@ -142,7 +146,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
