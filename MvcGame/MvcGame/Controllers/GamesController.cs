@@ -105,7 +105,7 @@ namespace MvcGame.Controllers
             return View(game);
         }
 
-        [HttpPost]
+        
         public IActionResult Create()
         {
             return View();
@@ -244,6 +244,7 @@ namespace MvcGame.Controllers
                     {
                         price = 0m;
                     }
+
 
                     if (string.IsNullOrEmpty(description))
                     {
