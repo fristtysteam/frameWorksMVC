@@ -1,4 +1,5 @@
-﻿@model MvcGame.Models.GameGenreViewModel
+﻿@using Newtonsoft.Json
+@model MvcGame.Models.GameGenreViewModel
 
 @{
     ViewData["Title"] = "Index";
@@ -59,4 +60,21 @@
             </tbody>
         </table>
     </div>
-</div>
+
+    @if (Model.OpenCriticGames != null && Model.OpenCriticGames.Any())
+    {
+        <h2>Popular OpenCritic Games</h2>
+        <div class="row">
+            @foreach (var game in Model.OpenCriticGames)
+            {
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">@game.Name</h5>
+                            <!-- Add other properties as needed -->
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }

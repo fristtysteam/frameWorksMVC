@@ -48,7 +48,9 @@ namespace MvcGame.Models
         [Required]
         public string? Rating { get; set; }
 
-
+        public string? Name { get; set; }
+        public int TopCriticScore { get; set; }
+        public string? Tier { get; set; }
 
     }
 }

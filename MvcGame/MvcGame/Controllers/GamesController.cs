@@ -27,6 +27,53 @@ namespace MvcGame.Controllers
             _httpClient.DefaultRequestHeaders.Add("User-Agent", "MvcGame");
         }
 
+        private async Task<List<Game>> GetGamesFromOpenCriticApi()
+        {
+            var client = new HttpClient();
+            var request = new HttpRequestMessage
+            {
+                Method = HttpMethod.Get,
+                RequestUri = new Uri("https://opencritic-api.p.rapidapi.com/game/popular"),
+                Headers =
+        {
+            { "X-RapidAPI-Key", "38202c4960msh7e78e26b55966dap13853bjsnf7e4e0b38f52" },
+            { "X-RapidAPI-Host", "opencritic-api.p.rapidapi.com" },
+        },
+            };
+
+            using (var response = await client.SendAsync(request))
+            {
+                response.EnsureSuccessStatusCode();
+                var body = await response.Content.ReadAsStringAsync();
+
+                // Deserialize JSON response into a list of Game objects
+                var games = JsonConvert.DeserializeObject<List<Game>>(body);
+
+                return games;
+            }
+        }
+        public async Task<IActionResult> OpenCriticGames()
+        {
+            var openCriticGames = await GetGamesFromOpenCriticApi();
+
+            if (openCriticGames != null && openCriticGames.Any())
+            {
+                var openCriticViewModel = new GameGenreViewModel
+                {
+                    OpenCriticGames = openCriticGames
+                };
+
+                return View(openCriticViewModel);
+            }
+            else
+            {
+                return View(new GameGenreViewModel());
+            }
+        }
+
+
+
+
         // GET: Games
         public async Task<IActionResult> Index(string gameGenre, string searchString)
         {
@@ -56,7 +103,7 @@ namespace MvcGame.Controllers
             {
                 apiGames = await GetGamesFromRawgApi(searchString);
 
-                if (apiGames != null && apiGames.Any()) 
+                if (apiGames != null && apiGames.Any())
                 {
                     var allGames = games.ToList();
                     allGames.AddRange(apiGames);
@@ -81,7 +128,6 @@ namespace MvcGame.Controllers
             return View(localGameGenreVM);
         }
 
-
         [HttpPost]
         public string Index(string searchString, bool notUsed)
         {
@@ -105,7 +151,6 @@ namespace MvcGame.Controllers
             return View(game);
         }
 
-        
         public IActionResult Create()
         {
             return View();
@@ -221,16 +266,16 @@ namespace MvcGame.Controllers
                 {
                     var gameObject = gameToken.ToObject<JObject>();
                     var title = (string)gameObject["name"];
-                    var description = ""; 
-                    var genre = ""; 
-                    var priceStr = (string)gameObject["metacritic"]; 
+                    var description = "";
+                    var genre = "";
+                    var priceStr = (string)gameObject["metacritic"];
                     var releaseDateStr = (string)gameObject["released"];
                     var rating = (string)gameObject["rating"];
 
                     var genresArray = gameObject["genres"].ToObject<JArray>();
                     if (genresArray.Any())
                     {
-                        genre = (string)genresArray[0]["name"]; 
+                        genre = (string)genresArray[0]["name"];
                     }
 
                     DateTime releaseDate;
@@ -245,7 +290,6 @@ namespace MvcGame.Controllers
                         price = 0m;
                     }
 
-
                     if (string.IsNullOrEmpty(description))
                     {
                         description = "Description not available";
@@ -255,7 +299,7 @@ namespace MvcGame.Controllers
                     {
                         Title = title,
                         Description = description,
-                        Genre = genre, 
+                        Genre = genre,
                         Price = price,
                         ReleaseDate = releaseDate,
                         Rating = rating
@@ -271,19 +315,5 @@ namespace MvcGame.Controllers
                 return null;
             }
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }
